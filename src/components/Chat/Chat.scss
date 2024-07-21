@@ -1,0 +1,304 @@
+@import "../../styles/variables";
+@import "../../styles/mixins.scss";
+
+.discuss {
+  width: 100%;
+  height: 100%;
+  background: $black;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  &__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 100px;
+  }
+
+  &__title {
+    @include title;
+    font-size: 60px;
+    line-height: 110px;
+    letter-spacing: 0.02em;
+    color: $white;
+    // text-shadow: 15px 5px 5px rgba(212, 9, 248, 0.12);
+  }
+
+  &__subtitle {
+    @include subtitle2;
+    font-size: 28px;
+    line-height: 36px;
+    color: $white;
+    opacity: 0.6;
+  }
+
+  .form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    &__wrapper {
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__title {
+      @include baloo6;
+      font-size: 40px;
+      line-height: 63px;
+      text-transform: capitalize;
+      color: $purple;
+    }
+
+    &__subtitle {
+      @include title;
+      text-transform: uppercase;
+      font-size: 50px;
+      line-height: 59px;
+      letter-spacing: 0.02em;
+      color: $white;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  &__input {
+    width: 300px;
+    padding: 20px 60px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+    background: transparent;
+    color: $white;
+    @include baloo5;
+    font-size: 18px;
+    line-height: 20px;
+    letter-spacing: 0.05em;
+
+    &::placeholder {
+      @include baloo5;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: 0.05em;
+      color: $white;
+      opacity: 0.4;
+    }
+  }
+
+  &__post--wrapper {
+    width: 90%;
+    margin: 0 auto;
+  }
+  &__post {
+    background: $white;
+    display: flex;
+    margin-bottom: 20px;
+    border: 1.5px solid rgba(21, 21, 21, 0.25);
+    border-radius: 60px 0px;
+
+    &--info {
+      padding: 30px;
+    }
+
+    &--comment {
+     list-style: none;
+    }
+    &--buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .posts {
+    background: $white;
+    width: 100%;
+    margin: 0 auto;
+
+    &__wrapper {
+      width: 80%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__title {
+      @include title;
+      font-size: 48px;
+      line-height: 53px;
+      padding-top: 100px;
+      letter-spacing: 0.02em;
+      text-transform: capitalize;
+      color: $black-light;
+      text-align: center;
+    }
+
+    &__inline {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+
+      &--img {
+        width: 30px;
+        height: 30px;
+      }
+      &--user {
+        @include title;
+        font-size: 20px;
+        line-height: 22px;
+        letter-spacing: 0.05em;
+      }
+
+      &--you {
+        padding: 2px 10px 3px;
+        background: $moderate-blue;
+        border-radius: 3px;
+        color: $white;
+      }
+    }
+
+    &__title-small {
+      @include baloo6;
+      font-size: 22px;
+      line-height: 50px;
+      letter-spacing: 0.05em;
+      color: $black-light;
+    }
+    &__subtitle {
+      @include subtitle2;
+      font-size: 24px;
+      line-height: 36px;
+      color: $black-light;
+      opacity: 0.75;
+    }
+  }
+  &__button {
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 575px) and (min-width: 320px) {
+    .form {
+      width: 100%;
+      height: 100%;
+
+      &__wrapper {
+        width: 60%;
+      }
+      form {
+        width: 90%;
+      }
+
+      &__title {
+        font-size: 18px;
+        text-align: center;
+      }
+
+      &__subtitle {
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+
+    &__inputs {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__input {
+      width: 250px;
+      padding: 20px 20px;
+      font-size: 18px;
+
+      &::placeholder {
+        @include baloo5;
+        font-size: 18px;
+        line-height: 20px;
+        letter-spacing: 0.05em;
+        color: $white;
+        opacity: 0.4;
+      }
+    }
+  }
+  @media screen and (max-width: 575px) and (min-width: 320px) {
+    &__post--wrapper {
+      width: 80%;
+      margin: 0 auto;
+    }
+    &__post {
+      margin-bottom: 15px;
+      margin-left: -35px;
+
+      &--info {
+        padding: 20px;
+      }
+    }
+    .posts {
+      width: 100%;
+
+      &__wrapper {
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      &__title {
+        font-size: 38px;
+        text-align: center;
+      }
+      &__inline {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &--img {
+          width: 20px;
+          height: 20px;
+        }
+        &--user {
+          font-size: 13px;
+        }
+
+        &--you {
+          padding: 2px 4px 3px;
+          background: $moderate-blue;
+        }
+      }
+
+      &__title-small {
+        font-size: 15px;
+      }
+      &__subtitle {
+        font-size: 14px;
+      }
+    }
+  }
+}

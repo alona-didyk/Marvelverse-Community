@@ -1,0 +1,281 @@
+@import "../../../styles/variables";
+
+.details {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  background: $black;
+
+  &__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 70px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "Coiny";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 59px;
+    letter-spacing: 0.02em;
+    color: $white;
+  }
+
+  &__rating {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 63px;
+    text-transform: capitalize;
+    color: $purple;
+  }
+
+  &__subtitle {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: $white;
+    opacity: 0.6;
+  }
+
+  &__img {
+    width: 250px;
+    height: 400px;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 220px;
+    padding: 10px 20px;
+    background-color: $button;
+    color: $white;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 20%;
+    transition: 0.3s ease-in;
+    text-align: center;
+    cursor: pointer;
+    font-family: "Baloo 2";
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 28px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+
+    color: $white;
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
+
+  &__creators {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+
+    &-title {
+      font-family: "Baloo 2";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      text-transform: capitalize;
+      color: $purple;
+    }
+  }
+  &__creator {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    color: $white;
+    opacity: 0.6;
+  }
+
+  @media screen and (max-width: 1024px) and (min-width: 768px) {
+    &__wrapper {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding-top: 95px;
+    }
+  }
+
+  @media screen and (max-width: 767px) and (min-width: 576px) {
+    &__wrapper {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding-top: 95px;
+    }
+    &__img {
+      width: 250px;
+      height: 400px;
+      align-items: center;
+    }
+  }
+  @media screen and (max-width: 575px) and (min-width: 320px) {
+    &__wrapper {
+      width: 90%;
+      margin: 0 auto;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      padding-top: 95px;
+      margin-bottom: 250px;
+    }
+    &__img {
+      margin-top: 50px;
+    }
+    &__title {
+      text-align: center;
+      font-size: 40px;
+    }
+    &__rating {
+      text-align: center;
+      font-size: 30px;
+    }
+    &__subtitle {
+      text-align: center;
+    }
+    &__button {
+      margin: 0 auto;
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.comments {
+  width: 100%;
+  padding-bottom: 50px;
+  &__wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    transition: 0.3s ease-in;
+    border: 1px solid $button;
+  }
+
+  &__title {
+    font-family: "Coiny";
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 53px;
+    letter-spacing: 0.02em;
+    text-transform: capitalize;
+    color: $white;
+    text-align: center;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: row;
+    height: 5vh;
+    align-items: center;
+  }
+
+  .btn {
+    border: none;
+    color: $white;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .like-active {
+    background-color: $button-hover;
+  }
+
+  .dislike-active {
+    background-color: $button;
+  }
+
+  &__title2 {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 50px;
+    letter-spacing: 0.05em;
+    color: $white;
+  }
+
+  &__subtitle {
+    font-family: "Baloo 2";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    color: $white;
+    opacity: 0.75;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 20px;
+    margin: 0 auto;
+  }
+
+  &__button {
+    display: inline-block;
+    width: 200px;
+    padding: 10px 20px;
+    background-color: $button;
+    color: $white;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 20%;
+    transition: 0.3s ease-in;
+    text-align: center;
+    cursor: pointer;
+    &:hover {
+      background-color: $button-hover;
+    }
+  }
+}

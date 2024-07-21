@@ -1,0 +1,64 @@
+@mixin title {
+  font-family: "Coiny";
+  font-weight: 400;
+}
+
+@mixin subtitle {
+    font-family: "Baloo 2";
+    font-weight: 400;
+    line-height: 36px;
+    color: #ffffff;
+    opacity: 0.6;
+}
+
+@mixin subtitle2 {
+  font-family: "Baloo 2";
+  font-weight: 400;
+}
+
+@mixin baloo6 {
+  font-family: "Baloo 2";
+  font-weight: 600;
+}
+
+@mixin baloo5 {
+  font-family: "Baloo 2";
+    font-weight: 500;
+}
+
+@mixin button {
+    display: inline-block;     
+    background-color: #d00ffc;
+    color: #fff;
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 20%;
+    transition: 0.3s ease-in;
+    text-align: center;
+    padding: 10px;
+    border: none;
+    font-family: "Baloo 2";
+    cursor: pointer;
+    &:hover {
+        background-color: #3a7dff;
+      }
+}
+
+@mixin media-sm() {
+    @media (min-width: 26.25em) {
+      @content;
+    }
+  }
+  
+  
+  @mixin media-md() {
+    @media (min-width: 47em) {
+      @content;
+    }
+  }
+  
+  @mixin support($value) {
+    @supports (#{$value}) {
+      @content;
+    }
+  }

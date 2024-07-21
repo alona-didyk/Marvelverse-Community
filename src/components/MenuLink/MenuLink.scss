@@ -1,0 +1,32 @@
+.menulink {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+    
+    .menuLinkText {
+      margin-left: 10px;
+      margin-right: 5px;
+    }
+    .menuLinkTextName{
+      text-transform: capitalize;
+    }
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  
+  
+  
+  @media only screen and (max-width: 940px){
+    .menuLinkText{
+        display: none;
+    }
+    .menuLinkTextName{
+      display: none;
+    }
+  }

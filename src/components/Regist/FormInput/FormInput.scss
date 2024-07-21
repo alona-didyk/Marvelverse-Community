@@ -1,0 +1,38 @@
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables";
+
+.formInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    input {
+        padding: 10px;
+        margin: 7px 0px;
+        border: 1px solid $button;
+        outline: none;
+        font-size: 16px;
+        @include subtitle2;
+
+        &:focus {
+            box-shadow: 0px 1px 10px 0.5px $button;
+            background-color: $white;
+        }
+
+        &:invalid[ focused = "true" ] {
+            border: 1px solid $red;
+        }
+
+        &:invalid[ focused = "true" ] ~ .errorMessage {
+            display: block
+        }
+    }
+
+    .errorMessage {
+        @include subtitle;
+        font-size: 15px;
+        line-height: 25px;
+        color: rgb(255, 0, 0);
+        display: none;
+    }
+}

@@ -1,0 +1,708 @@
+@import "../../styles/variables";
+@import "../../styles/mixins.scss";
+
+.main {
+  width: 100%;
+  height: 100%;
+  background: $black;
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__head {
+    position: relative;
+  }
+
+  &__text-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+    width: 630px;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  &__title {
+    @include title;
+    font-size: 100px;
+    line-height: 110px;
+    letter-spacing: 0.02em;
+    color: $white;
+    text-shadow: 15px 5px 5px rgba(0, 0, 0, 0.12);
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    @include subtitle2;
+    font-size: 28px;
+    line-height: 36px;
+    color: $white;
+    opacity: 0.9;
+  }
+
+  &__img {
+    width: 100%;
+    height: 650px;
+    border-radius: 60px;
+    opacity: 0.7;
+  }
+
+  .search {
+    width: 100%;
+    max-width: 1440px;
+    height: 300px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+    &__wrapper {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__title {
+      @include baloo6;
+      font-size: 40px;
+      line-height: 63px;
+      text-transform: capitalize;
+      color: $purple;
+      margin-bottom: 2px;
+    }
+
+    &__subtitle {
+      @include subtitle2;
+      font-size: 24px;
+      line-height: 36px;
+      color: $white;
+      opacity: 0.6;
+    }
+
+    &__form-wrapper {
+      width: 100%;
+    }
+
+    &__form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__input {
+      padding: 10px 100px;
+      margin: 10px 0px;
+      border: 1px solid $button;
+      outline: none;
+      font-size: 16px;
+      @include subtitle2;
+
+      &:focus {
+        box-shadow: 0px 1px 10px 0.5px $button;
+        background-color: $white;
+      }
+
+      &:invalid[focused="true"] {
+        border: 1px solid $red;
+      }
+
+      &:invalid[focused="true"] ~ .errorMessage {
+        display: block;
+      }
+    }
+
+    @media screen and (max-width: 575px) and (min-width: 320px) {
+      .search {
+        width: 100%;
+
+        &__title {
+          font-size: 30px;
+        }
+
+        &__subtitle {
+          font-size: 17px;
+          text-align: center;
+        }
+
+        &__input {
+          padding: 10px 50px;
+          margin: 10px 0px;
+          border: 1px solid $button;
+          outline: none;
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  .movies {
+    background: $white;
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 70px;
+    padding-bottom: 50px;
+
+    .loader {
+      display: inline-block;
+      position: relative;
+      margin: 0 auto;
+      width: 80px;
+      height: 80px;
+    }
+
+    .loader div {
+      position: absolute;
+      top: 33px;
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: $loader;
+      animation-timing-function: cubic-bezier(0, 1, 1, 0);
+    }
+
+    .loader div:nth-child(1) {
+      left: 8px;
+      animation: flip1 0.6s infinite;
+    }
+
+    .loader div:nth-child(2) {
+      left: 8px;
+      animation: flip2 0.6s infinite;
+    }
+
+    .loader div:nth-child(3) {
+      left: 32px;
+      animation: flip2 0.6s infinite;
+    }
+
+    .loader div:nth-child(4) {
+      left: 56px;
+      animation: flip3 0.6s infinite;
+    }
+
+    @keyframes flip1 {
+      0% {
+        transform: scale(0);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes flip3 {
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(0);
+      }
+    }
+
+    @keyframes flip2 {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(24px, 0);
+      }
+    }
+
+    &__wrapper {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    &__border {
+      border: 1.5px solid rgba(21, 21, 21, 0.25);
+      border-radius: 60px 0px;
+      display: flex;
+      flex-direction: row;
+      padding: 10px;
+      margin-bottom: 20px;
+      height: 390px;
+    }
+
+    &__text-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 200%;
+    }
+
+    &__title {
+      @include title;
+      font-size: 35px;
+      line-height: 53px;
+      padding-top: 5px;
+      margin-bottom: -35px;
+      letter-spacing: 0.02em;
+      text-transform: capitalize;
+      color: $black-light;
+    }
+
+    &__title2 {
+      @include baloo6;
+      font-size: 25px;
+      line-height: 50px;
+      letter-spacing: 0.05em;
+      color: $black-light;
+      margin-bottom: -10px;
+    }
+
+    &__subtitle {
+      @include subtitle2;
+      font-size: 16px;
+      line-height: 36px;
+      color: $black-light;
+      opacity: 0.75;
+      overflow: scroll;
+    }
+
+    &__img-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    &__img {
+      width: 200px;
+      height: 300px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .button {
+      width: 140px;
+      text-align: center;
+      padding: 10px 20px;
+    }
+
+    &__pagination {
+      margin: 0 auto;
+      display: flex;
+      gap: 10px;
+
+      &--button {
+        border: 1px solid $button;
+        border-radius: 20%;
+        background-color: transparent;
+        color: #333;
+        font-size: 16px;
+        margin: 0 5px;
+        padding: 5px 10px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        &:hover {
+          background-color: #eee;
+        }
+        &.active {
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+      .movies {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        &__border {
+          border: 1.5px solid rgba(21, 21, 21, 0.25);
+          border-radius: 60px 0px;
+          display: flex;
+          flex-direction: row;
+          padding: 10px;
+          margin-bottom: 20px;
+          height: 390px;
+        }
+
+        &__text-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          width: 180%;
+        }
+
+        &__title {
+          font-size: 22px;
+          line-height: 53px;
+          padding-top: 5px;
+          margin-bottom: -25px;
+        }
+
+        &__title2 {
+          font-size: 18px;
+          margin-bottom: -10px;
+        }
+
+        &__subtitle {
+          font-size: 14px;
+          overflow: scroll;
+        }
+      }
+    }
+    @media screen and (max-width: 767px) and (min-width: 576px) {
+      .movies {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        &__border {
+          border: 1.5px solid rgba(21, 21, 21, 0.25);
+          border-radius: 60px 0px;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          margin-bottom: 20px;
+          height: 390px;
+        }
+
+        &__text-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+
+        &__title {
+          font-size: 22px;
+          line-height: 53px;
+          padding-top: 5px;
+          margin-bottom: -25px;
+        }
+
+        &__title2 {
+          font-size: 18px;
+          margin-bottom: -10px;
+        }
+
+        &__subtitle {
+          font-size: 14px;
+          display: none;
+        }
+        &__img {
+          width: 200px;
+          height: 200px;
+        }
+      }
+    }
+    @media screen and (max-width: 575px) and (min-width: 320px) {
+      .movies {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        &__border {
+          border: 1.5px solid rgba(21, 21, 21, 0.25);
+          border-radius: 60px 0px;
+          display: flex;
+          flex-direction: column;
+          padding: 10px;
+          margin-bottom: 20px;
+          height: 390px;
+        }
+
+        &__text-wrapper {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+
+        &__title {
+          font-size: 13px;
+          line-height: 35px;
+          padding-top: 5px;
+          margin-bottom: -5px;
+        }
+
+        &__title2 {
+          font-size: 18px;
+          margin-bottom: -10px;
+        }
+
+        &__subtitle {
+          font-size: 14px;
+          display: none;
+        }
+        &__img {
+          width: 150px;
+          height: 200px;
+        }
+      }
+      .buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .button {
+        width: 100%;
+        text-align: center;
+        padding: 10px 10px;
+      }
+      button .button {
+        width: 120%;
+        text-align: center;
+        padding: 10px 20px;
+      }
+    }
+  }
+
+  .discuss {
+    width: 100%;
+    padding-top: 60px;
+    padding-bottom: 80px;
+
+    &__wrapper {
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+    }
+
+    &__text--wrapper {
+      max-width: 632px;
+      width: 90%;
+      height: 100%;
+    }
+
+    &__title {
+      @include baloo6;
+      font-size: 40px;
+      line-height: 63px;
+      text-transform: capitalize;
+      color: $purple;
+      margin-bottom: 2px;
+    }
+    &__title2 {
+      @include title;
+      font-size: 54px;
+      line-height: 59px;
+      letter-spacing: 0.02em;
+      color: $white;
+    }
+    &__subtitle {
+      @include subtitle2;
+      font-size: 24px;
+      line-height: 36px;
+      color: $white;
+      opacity: 0.6;
+    }
+
+    &__block {
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      border-radius: 100px 0px;
+      padding: 30px;
+    }
+
+    &__block--wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    &__img {
+      width: 544px;
+      height: 500px;
+      border-radius: 44px;
+      margin: 0 auto;
+    }
+
+    &__title3 {
+      @include baloo6;
+      font-size: 32px;
+      line-height: 50px;
+      color: $white;
+    }
+
+    &__more {
+      @include title;
+      font-size: 20px;
+      line-height: 22px;
+      letter-spacing: 0.05em;
+      color: $white;
+    }
+
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
+      .discuss {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+        }
+
+        &__title {
+          font-size: 35px;
+        }
+        &__title2 {
+          font-size: 45px;
+        }
+        &__subtitle {
+          @include subtitle2;
+          font-size: 24px;
+          line-height: 36px;
+          color: $white;
+          opacity: 0.6;
+        }
+
+        &__block {
+          border: 2px solid rgba(255, 255, 255, 0.5);
+          border-radius: 100px 0px;
+          padding: 30px;
+        }
+
+        &__block--wrapper {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
+        &__img {
+          width: 544px;
+          border-radius: 44px;
+          margin: 0 auto;
+        }
+
+        &__title3 {
+          @include baloo6;
+          font-size: 32px;
+          line-height: 50px;
+          color: $white;
+        }
+
+        &__more {
+          @include title;
+          font-size: 20px;
+          line-height: 22px;
+          letter-spacing: 0.05em;
+          color: $white;
+        }
+      }
+    }
+    @media screen and (max-width: 767px) and (min-width: 576px) {
+      .discuss {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+        }
+
+        &__title {
+          font-size: 35px;
+        }
+        &__title2 {
+          font-size: 40px;
+        }
+        &__subtitle {
+          font-size: 20px;
+        }
+
+        &__block {
+          width: 90%;
+        }
+
+        &__img {
+          width: 460px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 575px) and (min-width: 320px) {
+      .discuss {
+        width: 100%;
+        &__wrapper {
+          width: 90%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 30px;
+        }
+
+        &__title {
+          font-size: 35px;
+        }
+        &__title2 {
+          font-size: 40px;
+        }
+        &__subtitle {
+          font-size: 20px;
+        }
+
+        &__block {
+          width: 75%;
+        }
+
+        &__img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
